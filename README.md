@@ -25,6 +25,7 @@ nifi.start.notification.services=email-notification
 nifi.stop.notification.services=email-notification
 nifi.dead.notification.services=email-notification
 ```
+![alt tag](https://github.com/jobinthompu/HDF-2.0-NiFi-Notification-Services/blob/master/images/bootstrap.conf.jpg)
 
 3) Edit Template for bootstrap-notification-services.xml and make sure your SMTP settings are updated, and are uncommented. Sample configuration is given below:
 
@@ -41,3 +42,40 @@ nifi.dead.notification.services=email-notification
 <property name="To">jgeorge@hortonworks.com</property> 
 </service>
 ```
+![alt tag](https://github.com/jobinthompu/HDF-2.0-NiFi-Notification-Services/blob/master/images/bootstrap-notification-services.jpg)
+
+4) Save the Config changes in Ambari after uncommenting the, <service> property, confirm when asked and restart service.
+
+##Testing NiFi Notification Services
+
+1) Once restarted, you will see both stopped and started alerts in your inbox with details.
+
+
+```
+Stopped Email Alert:
+```
+![alt tag](https://github.com/jobinthompu/HDF-2.0-NiFi-Notification-Services/blob/master/images/email-alert-stop.jpg)
+
+
+```
+Started Email Alert:
+```
+![alt tag](https://github.com/jobinthompu/HDF-2.0-NiFi-Notification-Services/blob/master/images/email-alert-start.jpg)
+
+
+2) Try out stopping and killing NiFi process [make sure you don’t kill bootstrap process which monitors NiFi which in turn restarts NiFi process.]
+
+
+```
+Died Email Alert:
+```
+![alt tag](https://github.com/jobinthompu/HDF-2.0-NiFi-Notification-Services/blob/master/images/email-alert-died.jpg)
+
+
+##References
+
+[NiFi notification_services](https://nifi.apache.org/docs/nifi-docs/html/administration-guide.html#notification_services)
+
+Thanks,
+
+Jobin George
